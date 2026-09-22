@@ -1,0 +1,258 @@
+{
+  "info": {
+    "_postman_id": "proyecto-api3",
+    "name": "Proyecto API3 - Publicaciones",
+    "description": "Colección de endpoints para probar la API de Publicaciones con seguridad",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "Registro - Contraseña válida",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Pérez\",\n  \"email\": \"juan@example.com\",\n  \"password\": \"Password123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios/registro",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "usuarios", "registro"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registro - Contraseña débil (rechazada)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"María García\",\n  \"email\": \"maria@example.com\",\n  \"password\": \"abc123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios/registro",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "usuarios", "registro"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"juan@example.com\",\n  \"password\": \"Password123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "usuarios", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Perfil (Autenticado)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk0NzYwMDAwLCJleHAiOjE2OTQ3NjcyMDB9.XXXXX",
+                "description": "Reemplaza con el token obtenido del login"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios/perfil",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "usuarios", "perfil"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Publicaciones",
+      "item": [
+        {
+          "name": "Crear Publicación (Autenticado)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk0NzYwMDAwLCJleHAiOjE2OTQ3NjcyMDB9.XXXXX",
+                "description": "Reemplaza con el token del login"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Mi primer post\",\n  \"contenido\": \"Este es el contenido de mi publicación. El autor_id se inyecta automáticamente desde el JWT.\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/publicaciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "publicaciones"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Publicaciones (Sin autenticación)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/publicaciones?page=1&limit=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "publicaciones"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Publicaciones",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/publicaciones?search=curso&page=1&limit=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "publicaciones"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "curso"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Publicación por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/publicaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "publicaciones", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Publicación (Solo propietario)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk0NzYwMDAwLCJleHAiOjE2OTQ3NjcyMDB9.XXXXX",
+                "description": "Reemplaza con el token del login"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Título actualizado\",\n  \"contenido\": \"Contenido actualizado de la publicación\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/publicaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "publicaciones", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Publicación (Solo propietario)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk0NzYwMDAwLCJleHAiOjE2OTQ3NjcyMDB9.XXXXX",
+                "description": "Reemplaza con el token del login"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/publicaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "publicaciones", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
