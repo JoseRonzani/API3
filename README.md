@@ -475,7 +475,6 @@ proyecto-api3/
 - `run-tests.js`
 - `Proyecto-API3.postman_collection.json`
 - `README.md`
-- `REPORTE.md`
 
 ### Archivos modificados (3)
 
