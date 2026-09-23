@@ -90,12 +90,12 @@ Se han implementado **correctamente** todos los requisitos especificados en el d
 - **Middleware** ([tests/autenticacion.test.js](tests/autenticacion.test.js)):
   -  2 pruebas de autenticación
 - **Ejecución**: `npm test`
-- **Resultado**: 24/24 pruebas pasadas ✅
+- **Resultado**: 24/24 pruebas pasadas
 
 ### 9️ **Mocks en Express: Middlewares**
 - **Enfoque**: Simular objetos `req`, `res`, `next` sin servidor real
 - **Ventaja**: Pruebas rápidas y sin dependencias de BD
-- **Tests**: Validan que middleware rechaza tokens inválidos ✅
+- **Tests**: Validan que middleware rechaza tokens inválidos
 
 ---
 
