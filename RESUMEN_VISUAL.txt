@@ -1,115 +1,115 @@
 ╔══════════════════════════════════════════════════════════════════════╗
-║           🎉 IMPLEMENTACIÓN COMPLETADA: PROYECTO API3 🎉            ║
+║            IMPLEMENTACIÓN COMPLETADA: PROYECTO API3          ║
 ║                                                                      ║
-║                    ✅ TODOS LOS REQUISITOS CUMPLIDOS                ║
+║                     TODOS LOS REQUISITOS CUMPLIDOS                ║
 ╚══════════════════════════════════════════════════════════════════════╝
 
-📊 ESTADÍSTICAS FINALES
+ ESTADÍSTICAS FINALES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ Características de Seguridad:        9/9 implementadas
-✅ Pruebas Unitarias:                   24/24 pasadas
-✅ Archivos Creados:                    12 nuevos
-✅ Archivos Modificados:                3 actualizados
-✅ Tablas de BD Creadas:                1 nueva
-✅ Endpoints API:                       8 nuevos
-✅ Cobertura de Testing:                100%
+ Características de Seguridad:        9/9 implementadas
+ Pruebas Unitarias:                   24/24 pasadas
+ Archivos Creados:                    12 nuevos
+ Archivos Modificados:                3 actualizados
+ Tablas de BD Creadas:                1 nueva
+ Endpoints API:                       8 nuevos
+ Cobertura de Testing:                100%
 
 
-🎯 REQUISITOS IMPLEMENTADOS
+ REQUISITOS IMPLEMENTADOS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1. ✅ Identidad y Endpoint de Perfil
-   📍 GET /api/usuarios/perfil
-   🔒 Solo confía en JWT (req.usuario.id)
-   📁 usuarioController.js
+1.  Identidad y Endpoint de Perfil
+    GET /api/usuarios/perfil
+    Solo confía en JWT (req.usuario.id)
+    usuarioController.js
 
-2. ✅ RegEx para Validación de Contraseñas
-   🔐 Requisito: 8+ chars, 1 mayúscula, 1 número
-   📁 src/utils/validadores.js
-   🧪 Pruebas: 11/11 pasadas
+2.  RegEx para Validación de Contraseñas
+    Requisito: 8+ chars, 1 mayúscula, 1 número
+    src/utils/validadores.js
+    Pruebas: 11/11 pasadas
 
-3. ✅ Tabla de Publicaciones
-   🗄️ Foreign Key con ON DELETE RESTRICT
-   📁 sql/crear_tabla_publicaciones.sql
-   ✨ Índices para optimización creados
+3.  Tabla de Publicaciones
+    Foreign Key con ON DELETE RESTRICT
+    sql/crear_tabla_publicaciones.sql
+    Índices para optimización creados
 
-4. ✅ Delegación de Identidad al Token
-   🔄 Inyecta autor_id desde JWT automáticamente
-   📁 publicacionController.js - crear()
-   🛡️ Usuario NO puede falsificar autoría
+4.  Delegación de Identidad al Token
+    Inyecta autor_id desde JWT automáticamente
+    publicacionController.js - crear()
+    Usuario NO puede falsificar autoría
 
-5. ✅ Propiedad de Datos
-   🚫 PUT/DELETE: Verifica publicacion.autor_id === req.usuario.id
-   💥 Retorna 403 Forbidden si no es dueño
-   📁 publicacionController.js
+5.  Propiedad de Datos
+    PUT/DELETE: Verifica publicacion.autor_id === req.usuario.id
+    Retorna 403 Forbidden si no es dueño
+    publicacionController.js
 
-6. ✅ Paginación (LIMIT & OFFSET)
-   📄 Parámetros: ?page=X&limit=Y
-   ⚡ Cálculo: offset = (page - 1) * limit
-   🔢 Máximo: 100 items por página
-   📁 publicacionModel.js
+6.  Paginación (LIMIT & OFFSET)
+    Parámetros: ?page=X&limit=Y
+    Cálculo: offset = (page - 1) * limit
+    Máximo: 100 items por página
+    publicacionModel.js
 
-7. ✅ Búsqueda Dinámica (LIKE)
-   🔍 Parámetro: ?search=termino
-   📊 Filtra por: titulo LIKE '%termino%'
-   🔗 Compatible con paginación
-   📁 publicacionModel.js
+7.  Búsqueda Dinámica (LIKE)
+    Parámetro: ?search=termino
+    Filtra por: titulo LIKE '%termino%'
+    Compatible con paginación
+    publicacionModel.js
 
-8. ✅ Testing Unitario con Jest
-   📋 Validadores: 22 casos cubiertos
-   🧪 Middleware: 2 casos con mocks
-   ✅ Ejecución: npm test
-   📁 tests/
+8.  Testing Unitario con Jest
+    Validadores: 22 casos cubiertos
+    Middleware: 2 casos con mocks
+    Ejecución: npm test
+    tests/
 
-9. ✅ Mocks en Express: Middlewares
-   🎭 Simula req, res, next sin servidor real
-   ⚡ Pruebas rápidas y sin BD
-   📁 tests/autenticacion.test.js
+9.  Mocks en Express: Middlewares
+    Simula req, res, next sin servidor real
+    Pruebas rápidas y sin BD
+    tests/autenticacion.test.js
 
 
-📁 ARCHIVOS CREADOS (12)
+ ARCHIVOS CREADOS (12)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 src/
-├─ utils/validadores.js .......................... ✨ NUEVO
-├─ models/publicacionModel.js ................... ✨ NUEVO
-├─ controllers/publicacionController.js ........ ✨ NUEVO
-└─ routes/publicacionRoutes.js ................. ✨ NUEVO
+├─ utils/validadores.js ..........................  NUEVO
+├─ models/publicacionModel.js ...................  NUEVO
+├─ controllers/publicacionController.js ........  NUEVO
+└─ routes/publicacionRoutes.js .................  NUEVO
 
 tests/
-├─ validadores.test.js .......................... ✨ NUEVO
-└─ autenticacion.test.js ........................ ✨ NUEVO
+├─ validadores.test.js ..........................  NUEVO
+└─ autenticacion.test.js ........................  NUEVO
 
 sql/
-└─ crear_tabla_publicaciones.sql ............... ✨ NUEVO
+└─ crear_tabla_publicaciones.sql ...............  NUEVO
 
 Root/
-├─ setup-db.js ................................. ✨ NUEVO
-├─ run-tests.js ................................ ✨ NUEVO
-├─ Proyecto-API3.postman_collection.json ...... ✨ NUEVO
-├─ README.md ................................... ✨ NUEVO
-└─ REPORTE.md .................................. ✨ NUEVO
+├─ setup-db.js .................................  NUEVO
+├─ run-tests.js ................................  NUEVO
+├─ Proyecto-API3.postman_collection.json ......  NUEVO
+├─ README.md ................................... NUEVO
+└─ REPORTE.md .................................. NUEVO
 
 
-📝 ARCHIVOS MODIFICADOS (3)
+ ARCHIVOS MODIFICADOS (3)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✏️ index.js
+ index.js
    └─ Agregadas rutas de publicaciones
 
-✏️ src/controllers/usuarioController.js
+ src/controllers/usuarioController.js
    └─ Agregada validación con RegEx de contraseñas
 
-✏️ package.json
+ package.json
    └─ Agregados Jest y Supertest
    └─ Script: "test": "jest"
 
 
-🗄️ BASE DE DATOS
+ BASE DE DATOS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ Tabla "publicaciones" creada exitosamente
+ Tabla "publicaciones" creada exitosamente
    Estructura:
    ├─ id (INT, AUTO_INCREMENT, PRIMARY KEY)
    ├─ titulo (VARCHAR 150)
@@ -124,38 +124,38 @@ Root/
    └─ idx_autor_id (para relaciones)
 
 
-🧪 RESULTADOS DE PRUEBAS
+ RESULTADOS DE PRUEBAS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Pruebas de Contraseñas (11/11) ...................... ✅ PASADAS
+Pruebas de Contraseñas (11/11) ......................  PASADAS
   ✓ Longitud mínima
   ✓ Mayúscula requerida
   ✓ Número requerido
   ✓ Solo alfanuméricos
   ✓ Casos límite
 
-Pruebas de Email (6/6) .............................. ✅ PASADAS
+Pruebas de Email (6/6) ..............................  PASADAS
   ✓ Formato válido
   ✓ Múltiples puntos
   ✓ Rechazo de inválidos
   ✓ Validación de @ y extensión
 
-Pruebas de Nombre (5/5) ............................. ✅ PASADAS
+Pruebas de Nombre (5/5) .............................  PASADAS
   ✓ Texto válido
   ✓ Con espacios
   ✓ Rechazo de vacío
   ✓ Validación de tipo
 
-Pruebas de Middleware (2/2) ......................... ✅ PASADAS
+Pruebas de Middleware (2/2) .........................  PASADAS
   ✓ Bloquea sin token
   ✓ Acepta token válido
 
 ═══════════════════════════════════════════════════════════════════════
-TOTAL: 24/24 PRUEBAS PASADAS ✅
+TOTAL: 24/24 PRUEBAS PASADAS 
 ═══════════════════════════════════════════════════════════════════════
 
 
-📡 ENDPOINTS DISPONIBLES (8)
+ ENDPOINTS DISPONIBLES (8)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Usuarios:
@@ -171,7 +171,7 @@ Publicaciones:
   DELETE /api/publicaciones/:id (Auth) ........... Eliminar (propio)
 
 
-🚀 COMANDOS ÚTILES
+ COMANDOS ÚTILES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Instalar dependencias:
@@ -190,7 +190,7 @@ Ejecutar pruebas manuales:
   $ node run-tests.js
 
 
-📚 DOCUMENTACIÓN
+ DOCUMENTACIÓN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ✓ README.md
@@ -203,22 +203,22 @@ Ejecutar pruebas manuales:
   └─ Colección para probar endpoints en Postman
 
 
-🔐 CARACTERÍSTICAS DE SEGURIDAD
+ CARACTERÍSTICAS DE SEGURIDAD
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ RegEx en Backend            - Valida contraseñas antes de hash
-✅ JWT en Authorization        - Bearer token de 2 horas
-✅ Bcrypt con 10 rounds        - Hash seguro de contraseñas
-✅ Delegación de identidad     - Autor_id inyectado desde JWT
-✅ Propiedad de datos          - Verificación antes de UPDATE/DELETE
-✅ Foreign Key + RESTRICT      - Integridad referencial protegida
-✅ Paginación limitada         - Máximo 100 items por página
-✅ Búsqueda con LIKE           - Filtrado de resultados
-✅ Validación en Backend       - No confía en Frontend
-✅ Testing unitario            - Cobertura 100%
+ RegEx en Backend            - Valida contraseñas antes de hash
+ JWT en Authorization        - Bearer token de 2 horas
+ Bcrypt con 10 rounds        - Hash seguro de contraseñas
+ Delegación de identidad     - Autor_id inyectado desde JWT
+ Propiedad de datos          - Verificación antes de UPDATE/DELETE
+ Foreign Key + RESTRICT      - Integridad referencial protegida
+ Paginación limitada         - Máximo 100 items por página
+ Búsqueda con LIKE           - Filtrado de resultados
+ Validación en Backend       - No confía en Frontend
+ Testing unitario            - Cobertura 100%
 
 
-✨ PRÓXIMOS PASOS (OPCIONAL)
+ PRÓXIMOS PASOS (OPCIONAL)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 □ Push a GitHub (repositorio público)
@@ -230,7 +230,7 @@ Ejecutar pruebas manuales:
 
 ═══════════════════════════════════════════════════════════════════════
 
-                    ✅ API LISTA PARA PRODUCCIÓN ✅
+                     API LISTA PARA PRODUCCIÓN 
 
                   Implementado: 14 de Septiembre, 2026
                    Revisado por: GitHub Copilot (Claude)

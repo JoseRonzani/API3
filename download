@@ -1,0 +1,12 @@
+# Archivo: .dockerignore
+
+node_modules
+.env
+npm-debug.log
+.git
+.gitignore
+
+# Documentación y material que no hace falta dentro del contenedor
+*.md
+RESUMEN_VISUAL.txt
+Proyecto-API3.postman_collection.json

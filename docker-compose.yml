@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: proyecto-api3-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: sistema_web_db
+    ports:
+      - "3306:3306"
+    volumes:
+      # El "init.sql" corre automáticamente la primera vez que arranca el contenedor
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: . # Busca el Dockerfile en esta carpeta
+    container_name: proyecto-api3-app
+    ports:
+      - "3000:3000"
+    environment:
+      # DB_HOST=db -> en Docker los contenedores se conectan por el nombre
+      # del servicio definido arriba, no por "localhost"
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root123
+      - DB_NAME=sistema_web_db
+      - JWT_SECRET=supersecreto_mepsi
+      - PORT=3000
+    depends_on:
+      db:
+        condition: service_healthy
